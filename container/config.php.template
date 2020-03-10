@@ -7,7 +7,7 @@ $api_type = "nagios-api";
 
 // Your Nagios hosts
 $nagios_hosts = array(
-    array("hostname" => "%NAGIOS_API_HOST%", "port" => "%NAGIOS_API_PORT%", "protocol" => "http", "tag" => "DC1", "tagcolour" => "#336699", "weburl" => "https://nagios.company.tld/nagios")
+    array("hostname" => "%NAGIOS_API_HOST%", "port" => "%NAGIOS_API_PORT%", "protocol" => "http", "tag" => "DC1", "tagcolour" => "#336699", "weburl" => "%NAGIOS_API_WEBURL%")
 );
 
 // Globally filter out hosts using a regex, if you wish, or leave blank for all. 

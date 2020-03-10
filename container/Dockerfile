@@ -2,6 +2,7 @@ FROM centos:7
 
 ENV NAGIOS_API_HOST=host.docker.internal
 ENV NAGIOS_API_PORT=6315
+ENV NAGIOS_API_WEBURL=https://nagios.company.tld/nagios
 
 MAINTAINER Alex White (alex.white@diamond.ac.uk)
 

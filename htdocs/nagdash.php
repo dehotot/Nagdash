@@ -60,6 +60,11 @@ if (isset($_COOKIE['sort_descending'])) {
     $filter_sort_descending = (int) $_COOKIE['sort_descending'];
 }
 
+// If 1, the user wants to HIDE "Known Service Problems"; 0 if not.
+if (isset($_COOKIE['hide_ksps'])) {
+    $filter_hide_ksps = (int) $_COOKIE['hide_ksps'];
+}
+
 // Collect the API data from each Nagios host.
 
 if (isset($mock_state_file)) {
@@ -169,32 +174,35 @@ if ((isset($filter_sort_by_time) && $filter_sort_by_time == 1) || $sort_by_time)
     usort($known_services,'NagdashHelpers::cmp_last_state_change');
 }
 
-if (count($known_services) > 0) { ?>
-    <h3 align="center">Known Service Problems</h3>
-    <table class="widetable" id="known_services">
-    <tr style="color:#33b5e5;"><th width="25%">Hostname</th><th width="20%">Service</th><th width="15%">Comment</th><th width="18%">State</th><th width="10%">Duration</th><th width="5%">Attempt</th>
-<?php
+if (isset($filter_hide_ksps) && $filter_hide_ksps == 1) {
+    echo "<!--Known Service Problems hidden by user preference -->";
+} else {
+    if (count($known_services) > 0) {
+        echo '<h3 align="center">Known Service Problems</h3>';
+        echo '<table class="widetable" id="known_services">';
+        echo '<tr style="color:#33b5e5;"><th width="25%">Hostname</th><th width="20%">Service</th><th width="15%">Comment</th><th width="18%">State</th><th width="10%">Duration</th><th width="5%">Attempt</th>';
 
-    foreach($known_services as $service) {
-        if ($service['is_ack']) $status_text = "ack";
-        if ($service['is_downtime']) $status_text = "downtime {$service['downtime_remaining']}";
-        if (!$service['is_enabled']) $status_text = "disabled";
-        echo "<tr class='known_service'>";
-        $tag = NagdashHelpers::print_tag($service['tag'], count($nagios_hosts));
-        $service_comment = '';
-		if(!empty($service['comments'])) {
-			foreach($service['comments'] as $comment) {
-$service_comment .= " ".$comment['comment_data'];
-			}
-		}
-		
-        echo "<td>{$service['hostname']} " . $tag . "</td>";
-        echo "<td>{$service['service_name']}</td>";
-        echo "<td>{$service_comment}</td>";
-        echo "<td class='{$nagios_service_status_colour[$service['service_state']]}'>{$nagios_service_status[$service['service_state']]} ({$status_text})</td>";
-        echo "<td>{$service['duration']}</td>";
-        echo "<td>{$service['current_attempt']}/{$service['max_attempts']}</td>";
-        echo "</tr>";
+        foreach($known_services as $service) {
+            if ($service['is_ack']) $status_text = "ack";
+            if ($service['is_downtime']) $status_text = "downtime {$service['downtime_remaining']}";
+            if (!$service['is_enabled']) $status_text = "disabled";
+            echo "<tr class='known_service'>";
+            $tag = NagdashHelpers::print_tag($service['tag'], count($nagios_hosts));
+            $service_comment = '';
+    		if(!empty($service['comments'])) {
+    			foreach($service['comments'] as $comment) {
+    $service_comment .= " ".$comment['comment_data'];
+    			}
+    		}
+    		
+            echo "<td>{$service['hostname']} " . $tag . "</td>";
+            echo "<td>{$service['service_name']}</td>";
+            echo "<td>{$service_comment}</td>";
+            echo "<td class='{$nagios_service_status_colour[$service['service_state']]}'>{$nagios_service_status[$service['service_state']]} ({$status_text})</td>";
+            echo "<td>{$service['duration']}</td>";
+            echo "<td>{$service['current_attempt']}/{$service['max_attempts']}</td>";
+            echo "</tr>";
+        }
     }
 ?>
 

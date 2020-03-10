@@ -84,7 +84,7 @@ This will:
 * remove the container after it is stopped
 
 ### Rebuilding the Docker image
-`docker build -t nagdash .`
+`docker build -t nagdash -f container/Dockerfile .`
 
 ## Advanced configuration
 

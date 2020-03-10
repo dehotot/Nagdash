@@ -97,7 +97,7 @@ list($host_summary, $service_summary, $down_hosts, $known_hosts, $known_services
         <h3 align="center">Host Status</h3>
 <?php if (count($down_hosts) > 0) { ?>
     <table id="broken_hosts" class="widetable">
-    <tr style="color:#33b5e5;"><th>Hostname</th><th width="150px">State</th><th>Duration</th><th>Attempts</th><th>Detail</th></tr>
+    <tr class="tableheader"><th>Hostname</th><th width="150px">State</th><th>Duration</th><th>Attempts</th><th>Detail</th></tr>
 <?php
     foreach ($down_hosts as $host) {
         $blink_tag = ($host['is_hard'] && $enable_blinking) ? "<blink>" : "";
@@ -141,7 +141,7 @@ if (count($known_hosts) > 0) {
         <h3 align="center">Service Status</h3>
 <?php if (count($broken_services) > 0) { ?>
     <table class="widetable" id="broken_services">
-    <tr style="color:#33b5e5;"><th width="30%">Hostname</th><th width="50%">Service</th><th width="10%">Duration</th><th width="5%">Attempt</th></tr>
+    <tr class="tableheader"><th width="30%">Hostname</th><th width="50%">Service</th><th width="10%">Duration</th><th width="5%">Attempt</th></tr>
 <?php
     // Check for the presence of the 'sort_by_time' cookie, then the static config value.
     if ((isset($filter_sort_by_time) && $filter_sort_by_time == 1) || $sort_by_time) {
@@ -180,7 +180,7 @@ if (isset($filter_hide_ksps) && $filter_hide_ksps == 1) {
     if (count($known_services) > 0) {
         echo '<h3 align="center">Known Service Problems</h3>';
         echo '<table class="widetable" id="known_services">';
-        echo '<tr style="color:#33b5e5;"><th width="25%">Hostname</th><th width="20%">Service</th><th width="15%">Comment</th><th width="18%">State</th><th width="10%">Duration</th><th width="5%">Attempt</th>';
+        echo '<tr class="tableheader"><th width="25%">Hostname</th><th width="20%">Service</th><th width="15%">Comment</th><th width="18%">State</th><th width="10%">Duration</th><th width="5%">Attempt</th>';
 
         foreach($known_services as $service) {
             if ($service['is_ack']) $status_text = "ack";

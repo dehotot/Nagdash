@@ -6,10 +6,10 @@ table               { background-color: #F0F0F0; border-collapse: separate; }
 th                  { border: 1px #353535 solid; background-color: #404040 }
 .widetable          { width: 100%; clear: both }
 .bold               { font-weight: bold; }
-.status_green       { background-color: #269926; color: white; padding: 3px }
-.status_red         { background-color: #FF4040; color: white; padding: 3px }
-.status_yellow      { background-color: #FFDE40; color: black; padding: 3px }
-.status_grey        { background-color: #444444; color: white; padding: 3px }
+.status_green       { background-color: #69B578; color: white; padding: 3px }
+.status_red         { background-color: #CB4E78; color: white; padding: 3px }
+.status_yellow      { background-color: #F6EF92; color: black; padding: 3px }
+.status_grey        { background-color: #3F415D; color: white; padding: 3px }
 .status_soft        { opacity: 0.25}
 .known_hosts        { background-color: lightgrey; color: black }
 .known_hosts_desc   { color: #686868 }
@@ -17,6 +17,7 @@ th                  { border: 1px #353535 solid; background-color: #404040 }
 #info-window-text   { padding: 30px; vertical-align: middle }
 .tag                { font-size: 0.6em; color: white; padding: 4px; -webkit-border-radius: 5px; }
 .tag_label          { color: white; padding-top: 10px !important; padding-bottom: 10px; padding-right: 30px; padding-left: 30px; -webkit-border-radius: 5px; }
+.tableheader        { color: #52D1DC }
 
 div.frame           { padding-bottom: 5px; }
 

@@ -4,6 +4,7 @@ h3                  { margin-top: 3px; margin-bottom: 3px; font-size: 1.5em }
 table,td            { border: none; padding: 2px; border-spacing: 2px; }
 table               { background-color: #F0F0F0; border-collapse: separate; }
 th                  { border: 1px #353535 solid; background-color: #404040 }
+a,a:hover           { color: ffffff; }
 .widetable          { width: 100%; clear: both }
 .bold               { font-weight: bold; }
 .status_green       { background-color: #69B578; color: white; padding: 3px }

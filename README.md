@@ -67,20 +67,21 @@ Live settings screen (accessed using the 's' key) lets you choose which Nagios i
 
 ## Installation with Docker
 ### Running under Docker
-docker run -it nagdash
+`docker run -it nagdash`
 
 #### configuration via env variables
 environment variable | default value
-------------------------------------
+---------------------|--------------
 NAGIOS_API_HOST | host.docker.internal
 NAGIOS_API_PORT | 6315
 
 #### example
+`docker run -it --name nagdash --rm -p 1234:80 -e NAGIOS_API_HOST=nagiosapi.domain.tld nagdash`
+This will:
 * run the nagdash image, and call the container "nagdash"
 * connect to the nagios-api at nagiosapi.domain.tld, on the default port (6315)
 * map container port 80 to 1234 on the outside world
 * remove the container after it is stopped
-`docker run -it --name nagdash --rm -p 1234:80 -e NAGIOS_API_HOST=nagiosapi.domain.tld nagdash`
 
 ### Rebuilding the Docker image
 `docker build -t nagdash .`

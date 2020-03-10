@@ -74,7 +74,7 @@ environment variable | default value
 ---------------------|--------------
 NAGIOS_API_HOST | host.docker.internal
 NAGIOS_API_PORT | 6315
-NAGIOS_API_WEBURL | https://nagios.company.tld/nagios
+NAGIOS_API_WEBURL | 'https:\/\/nagios.company.tld\/nagios'
 
 #### example
 `docker run -it --name nagdash --rm -p 1234:80 -e NAGIOS_API_HOST=nagiosapi.domain.tld nagdash`

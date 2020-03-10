@@ -20,7 +20,7 @@ $duration = 60*60;
 $show_refresh_spinner = true;
 
 // Refresh rate
-$refresh_every_ms = 20000;
+$refresh_every_ms = %NAGDASH_REFRESH_PERIOD%;
 
 // sort_by_time: Set this to true to sort by the last state change, e.g. how long the service has been broken.
 // If set to false, leave to default sorting by hostname instead.

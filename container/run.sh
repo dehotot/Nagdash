@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # create the config file from template
-sed "s/%NAGIOS_API_HOST%/${NAGIOS_API_HOST}/g; s/%NAGIOS_API_PORT%/${NAGIOS_API_PORT}/g; s/%NAGIOS_API_WEBURL%/${NAGIOS_API_WEBURL}/g;" /var/www/html/Nagdash/config.php.template \
+sed "s/%NAGIOS_API_HOST%/${NAGIOS_API_HOST}/g; s/%NAGIOS_API_PORT%/${NAGIOS_API_PORT}/g; s/%NAGIOS_API_WEBURL%/${NAGIOS_API_WEBURL}/g; s/%NAGDASH_REFRESH_PERIOD%/${NAGDASH_REFRESH_PERIOD}/g;" /var/www/html/Nagdash/config.php.template \
 	> /var/www/html/Nagdash/config.php
 
 echo '== Nagdash Config ============================================================'

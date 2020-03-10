@@ -72,6 +72,7 @@ Live settings screen (accessed using the 's' key) lets you choose which Nagios i
 #### configuration via env variables
 environment variable | default value
 ---------------------|--------------
+NAGDASH_REFRESH_PERIOD | 20000 (miliseconds)
 NAGIOS_API_HOST | host.docker.internal
 NAGIOS_API_PORT | 6315
 NAGIOS_API_WEBURL | https:\/\/nagios.company.tld\/nagios
